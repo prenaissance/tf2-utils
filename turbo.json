@@ -3,9 +3,13 @@
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "build": {
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
     "lint": {},
+    "test": {},
+    "test:coverage": {
+      "outputs": ["coverage/**"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
