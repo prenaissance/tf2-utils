@@ -20,7 +20,7 @@ jobs:
       - run: pnpm i --frozen-lockfile
       - run: pnpm run build
   test:
-    name: Build
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
