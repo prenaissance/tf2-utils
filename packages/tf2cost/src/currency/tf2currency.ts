@@ -71,9 +71,9 @@ export class TF2Currency {
    * if the value is greater than 1 key, otherwise it will show it in refined.
    * @example
    * config.keyRefinedPrice = 50;
-   * const myCurrency = tf2currency({ keys: 1, refined: 5 });
+   * const myCurrency = tf2cost({ keys: 1, refined: 5 });
    * myCurrency.toString(); // '1.1 keys'
-   * const myCurrency2 = tf2currency({ refined: 1, scrap: 1 });
+   * const myCurrency2 = tf2cost({ refined: 1, scrap: 1 });
    * myCurrency2.toString(); // '1.33 ref'
    */
   toString(): string {

@@ -1,5 +1,5 @@
 {
-  "name": "tf2currency",
+  "name": "tf2cost",
   "version": "1.0.0",
   "description": "A module for parsing, formatting and converting TF2 currencies.",
   "main": "dist/index.cjs",
@@ -30,9 +30,7 @@
     "tsconfig": "workspace:*",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",
-    "vitest": "^0.30.1"
-  },
-  "dependencies": {
+    "vitest": "^0.30.1",
     "@vitest/coverage-c8": "^0.30.1",
     "vite-tsconfig-paths": "^4.2.0"
   }
