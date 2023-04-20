@@ -17,4 +17,4 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
       - run: pnpm i --frozen-lockfile
       - run: pnpm run build
-      - run: pnpm publish --access public
+      - run: pnpm publish -r --access public
