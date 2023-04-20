@@ -14,8 +14,8 @@ export const config: CurrencyConfig = {
   keyUsdPrice: 1.8,
 };
 
-const getCurrencyFactory = (config: CurrencyConfig) => {
-  const constructor = (currency: TF2CurrencyInit) =>
+export const getCurrencyFactory = (config: CurrencyConfig) => {
+  const constructor = (currency: Partial<TF2CurrencyInit>) =>
     new TF2Currency(currency, config);
   constructor.fromRefined = (refined: number) =>
     new TF2Currency({ refined }, config);

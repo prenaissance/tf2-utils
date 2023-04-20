@@ -19,6 +19,8 @@ plugins:
 rules:
   eqeqeq: error
   no-constant-condition: off
+  no-extra-bind: error
+  no-extra-semi: error
   "import/no-unresolved": error
   "@typescript-eslint/no-non-null-assertion": off
   "@typescript-eslint/no-explicit-any": off

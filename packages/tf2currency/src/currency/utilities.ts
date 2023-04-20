@@ -1,4 +1,4 @@
-export const roundToDecimals = (num: number, decimals: number): number => {
+export const floorToDecimals = (num: number, decimals: number): number => {
   const multiplier = 10 ** decimals;
-  return Math.round(num * multiplier) / multiplier;
+  return Math.floor(num * multiplier) / multiplier;
 };

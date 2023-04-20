@@ -1,5 +1,5 @@
 import { TF2CurrencyInit } from "@/common/types";
-import { roundToDecimals } from "./utilities";
+import { floorToDecimals } from "./utilities";
 
 export type CurrencyConfig = {
   keyRefinedPrice: number;
@@ -25,21 +25,22 @@ export class TF2Currency {
     } = currency;
     // normalize the currency
     let totalWeapons =
+      0.49 + // for rounding, might need a better solution
       weapons +
       scrap * 2 +
       reclaimed * 6 +
       refined * 18 +
       keys * config.keyRefinedPrice * 18;
 
-    this.weapons = totalWeapons % 2;
+    this.weapons = Math.round(totalWeapons % 2);
     totalWeapons -= this.weapons;
-    this.scrap = (totalWeapons / 2) % 3;
+    this.scrap = Math.round((totalWeapons / 2) % 3);
     totalWeapons -= this.scrap * 2;
-    this.reclaimed = (totalWeapons / 6) % 3;
+    this.reclaimed = Math.round((totalWeapons / 6) % 3);
     totalWeapons -= this.reclaimed * 6;
-    this.refined = (totalWeapons / 18) % config.keyRefinedPrice;
+    this.refined = Math.round((totalWeapons / 18) % config.keyRefinedPrice);
     totalWeapons -= this.refined * 18;
-    this.keys = totalWeapons / (config.keyRefinedPrice * 18);
+    this.keys = Math.round(totalWeapons / (config.keyRefinedPrice * 18));
   }
 
   private getTotalWeapons(): number {
@@ -54,7 +55,7 @@ export class TF2Currency {
   }
 
   toUSD(): number {
-    return this.keys * this._config.keyUsdPrice;
+    return floorToDecimals(this.toKeys() * this._config.keyUsdPrice, 2);
   }
 
   toRefined(): number {
@@ -78,10 +79,10 @@ export class TF2Currency {
   toString(): string {
     const totalKeys = this.toKeys();
     if (totalKeys >= 1) {
-      return `${roundToDecimals(totalKeys, 2)} key${
-        this.keys === 1 ? "" : "s"
+      return `${floorToDecimals(totalKeys, 2)} key${
+        floorToDecimals(totalKeys, 2) === 1 ? "" : "s"
       }`;
     }
-    return `${roundToDecimals(this.toRefined(), 2)} ref`;
+    return `${floorToDecimals(this.toRefined(), 2)} ref`;
   }
 }
