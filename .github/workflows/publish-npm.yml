@@ -1,6 +1,11 @@
 name: Publish packages to npm
 on: workflow_dispatch
 
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: prenaissance
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 jobs:
   publish:
     name: Publish to npm
@@ -14,7 +19,7 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-          token: ${{ secrets.NPM_TOKEN }}
+          registry-url: "https://registry.npmjs.org"
       - run: pnpm i --frozen-lockfile
       - run: pnpm run build
       - run: pnpm publish -r --access public
