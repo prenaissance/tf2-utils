@@ -39,6 +39,10 @@ importers:
         version: 5.0.4
 
   packages/tf2cost:
+    dependencies:
+      arcsecond:
+        specifier: ^5.0.0
+        version: 5.0.0
     devDependencies:
       '@types/node':
         specifier: ^18.15.11
@@ -700,6 +704,10 @@ packages:
       normalize-path: 3.0.0
       picomatch: 2.3.1
     dev: true
+
+  /arcsecond@5.0.0:
+    resolution: {integrity: sha512-J/fHdyadnsIencRsM6oUSsraCKG+Ni9Udcgr/eusxjTzX3SEQtCUQSpP0YtImFPfIK6DdT1nqwN0ng4FqNmwgA==}
+    dev: false
 
   /argparse@1.0.10:
     resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
