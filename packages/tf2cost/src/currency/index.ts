@@ -38,6 +38,8 @@ export const getCurrencyFactory = (config: CurrencyConfig) => {
   constructor.fromRefined = (refined: number) =>
     new TF2Currency({ refined }, config);
   constructor.fromKeys = (keys: number) => new TF2Currency({ keys }, config);
+  constructor.fromUSD = (usd: number) =>
+    new TF2Currency({ keys: usd / config.keyUsdPrice }, config);
 
   return constructor;
 };

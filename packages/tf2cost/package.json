@@ -1,6 +1,6 @@
 {
   "name": "tf2cost",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A module for parsing, formatting and converting TF2 currencies.",
   "main": "dist/index.cjs",
   "module": "dist/index.js",

@@ -101,4 +101,15 @@ describe("Currency", () => {
     const price = tf2cost.fromKeys(1.11);
     expect(price.toString()).toBe("1.11 keys");
   });
+
+  it("should make currency from USD", () => {
+    config.keyUsdPrice = 1.8;
+    const price = tf2cost.fromUSD(1.8);
+    expect(price.toString()).toBe("1 key");
+    expect(price.toUSD()).toBeCloseTo(1.8);
+
+    const price2 = tf2cost.fromUSD(2.7);
+    expect(price2.toString()).toBe("1.5 keys");
+    expect(price2.toUSD()).toBeCloseTo(2.7);
+  });
 });
