@@ -66,6 +66,32 @@ export class TF2Currency {
     return this.getTotalWeapons() / (this._config.keyRefinedPrice * 18);
   }
 
+  add(currency: TF2CurrencyInit): TF2Currency {
+    return new TF2Currency(
+      {
+        keys: this.keys + currency.keys,
+        refined: this.refined + currency.refined,
+        reclaimed: this.reclaimed + currency.reclaimed,
+        scrap: this.scrap + currency.scrap,
+        weapons: this.weapons + currency.weapons,
+      },
+      this._config,
+    );
+  }
+
+  subtract(currency: TF2CurrencyInit): TF2Currency {
+    return new TF2Currency(
+      {
+        keys: this.keys - currency.keys,
+        refined: this.refined - currency.refined,
+        reclaimed: this.reclaimed - currency.reclaimed,
+        scrap: this.scrap - currency.scrap,
+        weapons: this.weapons - currency.weapons,
+      },
+      this._config,
+    );
+  }
+
   /**
    * Shows the formatted tf2 currency, formatted up to 2 decimals, showing it in keys
    * if the value is greater than 1 key, otherwise it will show it in refined.
